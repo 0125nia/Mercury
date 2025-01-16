@@ -1,5 +1,9 @@
 package sdk
 
+const (
+	MsgTypeText = "text"
+)
+
 // Message is a struct that represents a message that is sent between clients.
 type Message struct {
 	Type    string
@@ -34,7 +38,7 @@ func (c *Chat) Send(msg *Message) {
 }
 
 // Recv receives a message from the other client.
-func (c *Chat) Recv() *Message {
+func (c *Chat) Recv() <-chan *Message {
 	return c.conn.recv()
 }
 

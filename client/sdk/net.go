@@ -22,8 +22,8 @@ func (c *connect) send(msg *Message) {
 }
 
 // recv receives a message from the other client.
-func (c *connect) recv() *Message {
-	return <-c.recvChan
+func (c *connect) recv() <-chan *Message {
+	return c.recvChan
 }
 
 // close closes the connection.
