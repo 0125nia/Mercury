@@ -1,0 +1,4 @@
+package ipconf
+
+func RunMain() {
+}
