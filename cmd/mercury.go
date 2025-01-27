@@ -9,6 +9,7 @@ import (
 
 func init() {
 	cobra.OnInitialize(initConfig)
+	rootCmd.PersistentFlags().StringVar(&ConfigPath, "config", "./mercury.yaml", "config file path")
 }
 
 var ConfigPath string
