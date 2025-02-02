@@ -12,6 +12,7 @@ var Config *Conf
 type Conf struct {
 	Global    *Global    `yaml:"global"`
 	Discovery *Discovery `yaml:"discovery"`
+	IpConf    *IpConf    `yaml:"ipconf"`
 	// todo add config here
 }
 
@@ -23,6 +24,10 @@ type Global struct {
 type Discovery struct {
 	Endpoints []string      `yaml:"endpoints"`
 	TimeOut   time.Duration `yaml:"timeout"`
+}
+
+type IpConf struct {
+	ServicePath string `yaml:"service_path"`
 }
 
 func InitConfig(path string) {

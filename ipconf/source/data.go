@@ -21,5 +21,17 @@ func Init() {
 func DataHandler(ctx *context.Context) {
 	discovery := discovery.NewServiceDiscovery(ctx)
 	defer discovery.Close()
-	// todo add data handler here
+
+	// setFunc is a function to handle the new service
+	setFunc := func(key, value string) {
+	}
+
+	// delFunc is a function to handle the deleted service
+	delFunc := func(key, value string) {
+	}
+
+	err := discovery.WatchService(config.Config.IpConf.ServicePath, setFunc, delFunc)
+	if err != nil {
+		panic(err)
+	}
 }

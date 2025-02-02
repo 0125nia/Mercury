@@ -5,3 +5,6 @@ discovery:
   endpoints:
     - localhost:2379
   timeout: 5
+
+ipconf:
+  service_path: /ipconf
