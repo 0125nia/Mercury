@@ -1,2 +1,7 @@
 global:
   env: debug
+
+discovery:
+  endpoints:
+    - localhost:2379
+  timeout: 5
