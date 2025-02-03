@@ -89,7 +89,7 @@ func (s *ServiceRegister) KeepAlive() {
 		logger.CtxInfof(*s.ctx, "lease success leaseID:%d, Put key:%s,val:%s reps:+%v",
 			s.leaseID, s.key, s.value, leaseKeepResp)
 	}
-	logger.CtxInfof(*s.ctx, "lease failed !!!  leaseID:%d, Put key:%s,val:%s", s.leaseID, s.key, s.value)
+	logger.CtxInfof(*s.ctx, "lease failed...  leaseID:%d, Put key:%s,val:%s", s.leaseID, s.key, s.value)
 }
 
 // Close the lease
