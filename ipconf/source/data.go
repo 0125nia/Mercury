@@ -17,7 +17,10 @@ func Init() {
 	go DataHandler(&ctx)
 	// debug test
 	if config.Config.Global.Env == "debug" {
-		// todo add debug test here
+		ctx := context.Background()
+		testServiceRegister(&ctx, "8081", "node1")
+		testServiceRegister(&ctx, "8082", "node2")
+		testServiceRegister(&ctx, "8083", "node3")
 	}
 }
 

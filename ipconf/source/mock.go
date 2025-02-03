@@ -11,6 +11,7 @@ import (
 
 // testServiceRegister is a function to test the service register
 func testServiceRegister(ctx *context.Context, port, node string) {
+	// mock test the service register
 	go func() {
 		ed := discovery.Endpoint{
 			Ip:   "127.0.0.1",
@@ -21,7 +22,18 @@ func testServiceRegister(ctx *context.Context, port, node string) {
 		if err != nil {
 			panic(err)
 		}
+
+		// keep alive channel handle
 		go sr.KeepAlive()
-		// todo: update endpoint here
+
+		// mock the service update
+		for {
+			ed = discovery.Endpoint{
+				Ip:   ed.Ip,
+				Port: ed.Port,
+			}
+			sr.UpdateValue(&ed)
+			time.Sleep(1 * time.Second)
+		}
 	}()
 }
