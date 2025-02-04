@@ -1,4 +1,4 @@
-package ipconf
+package domain
 
 import (
 	"context"
@@ -7,16 +7,16 @@ import (
 )
 
 // IpConfConext is the context of the ipconf module.
-type IpConfConext struct {
+type IpConfContext struct {
 	Ctx       *context.Context
 	AppReqCtx *app.RequestContext
 }
 
 // BuildIpConfContext creates a new IpConfConext.
-func BuildIpConfContext(c *context.Context, ctx *app.RequestContext) *IpConfConext {
-	ipConfConext := &IpConfConext{
+func BuildIpConfContext(c *context.Context, ctx *app.RequestContext) *IpConfContext {
+	ipConfContext := &IpConfContext{
 		Ctx:       c,
 		AppReqCtx: ctx,
 	}
-	return ipConfConext
+	return ipConfContext
 }

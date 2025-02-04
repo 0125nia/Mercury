@@ -25,10 +25,10 @@ func NewEvent(etype EventType, ed *discovery.EndpointInfo) *Event {
 	}
 	var connNum, msgBytes float64
 	if data, ok := ed.MetaData["connect_num"]; ok {
-		connNum = data.(float64) // 如果出错，此处应该panic 暴露错误
+		connNum = data.(float64)
 	}
 	if data, ok := ed.MetaData["message_bytes"]; ok {
-		msgBytes = data.(float64) // 如果出错，此处应该panic 暴露错误
+		msgBytes = data.(float64)
 	}
 	return &Event{
 		Type:         etype,

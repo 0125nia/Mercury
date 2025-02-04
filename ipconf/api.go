@@ -3,6 +3,7 @@ package ipconf
 import (
 	"context"
 
+	"github.com/0125nia/Mercury/ipconf/domain"
 	"github.com/cloudwego/hertz/pkg/app"
 	"github.com/cloudwego/hertz/pkg/common/utils"
 	"github.com/cloudwego/hertz/pkg/protocol/consts"
@@ -17,10 +18,10 @@ func GetIpInfoList(c context.Context, ctx *app.RequestContext) {
 	}()
 
 	// Build the IpConfContext
-	ipConfCtx := BuildIpConfContext(&c, ctx)
+	ipConfCtx := domain.BuildIpConfContext(&c, ctx)
 
 	// ip dispatch processing
-	dispatch(ipConfCtx)
+	domain.Dispatch(ipConfCtx)
 
 	// resp the ip info list
 	ctx.JSON(consts.StatusOK, ipConfResp())
