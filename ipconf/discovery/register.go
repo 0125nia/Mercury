@@ -21,7 +21,7 @@ type ServiceRegister struct {
 }
 
 // NewServiceRegister creates a new service register
-func NewServiceRegister(ctx *context.Context, key string, endpoint *Endpoint, lease int64) (*ServiceRegister, error) {
+func NewServiceRegister(ctx *context.Context, key string, endpoint *EndpointInfo, lease int64) (*ServiceRegister, error) {
 	// create a new etcd client
 	cli, err := clientv3.New(clientv3.Config{
 		Endpoints:   config.Config.Discovery.Endpoints,
@@ -71,7 +71,7 @@ func (s *ServiceRegister) putKeyWithLease(lease int64) error {
 }
 
 // UpdateValue update the value of the service
-func (s *ServiceRegister) UpdateValue(val *Endpoint) error {
+func (s *ServiceRegister) UpdateValue(val *EndpointInfo) error {
 	// Marshal the Endpoint
 	value := val.Marshal()
 	_, err := s.cli.Put(*s.ctx, s.key, s.value, clientv3.WithLease(s.leaseID))

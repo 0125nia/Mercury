@@ -12,7 +12,7 @@ import (
 func TestServciceRegister(t *testing.T) {
 	config.InitConfig("./../../mercury.yaml")
 	ctx := context.Background()
-	ser, err := NewServiceRegister(&ctx, "/web/node1", &Endpoint{
+	ser, err := NewServiceRegister(&ctx, "/web/node1", &EndpointInfo{
 		Ip:   "127.0.0.1",
 		Port: "9999",
 	}, 5)

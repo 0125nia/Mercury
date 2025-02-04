@@ -31,7 +31,7 @@ func DataHandler(ctx *context.Context) {
 
 	// setFunc is a function to handle the new service
 	setFunc := func(key, value string) {
-		if ed, err := discovery.UnmarshalEndpoint([]byte(value)); err == nil {
+		if ed, err := discovery.UnmarshalEndpointInfo([]byte(value)); err == nil {
 			if event := NewEvent(AddNodeEvent, ed); ed != nil {
 				eventChan <- event
 			}
@@ -42,7 +42,7 @@ func DataHandler(ctx *context.Context) {
 
 	// delFunc is a function to handle the deleted service
 	delFunc := func(key, value string) {
-		if ed, err := discovery.UnmarshalEndpoint([]byte(value)); err == nil {
+		if ed, err := discovery.UnmarshalEndpointInfo([]byte(value)); err == nil {
 			if event := NewEvent(DelNodeEvent, ed); ed != nil {
 				eventChan <- event
 			}

@@ -2,13 +2,13 @@ package discovery
 
 import "encoding/json"
 
-type Endpoint struct {
+type EndpointInfo struct {
 	Ip       string                 `json:"ip"`
 	Port     string                 `json:"port"`
 	MetaData map[string]interface{} `json:"meta"`
 }
 
-func (ed *Endpoint) Marshal() string {
+func (ed *EndpointInfo) Marshal() string {
 	data, err := json.Marshal(ed)
 	if err != nil {
 		panic(err)
@@ -16,8 +16,8 @@ func (ed *Endpoint) Marshal() string {
 	return string(data)
 }
 
-func UnmarshalEndpoint(data []byte) (*Endpoint, error) {
-	ed := &Endpoint{}
+func UnmarshalEndpointInfo(data []byte) (*EndpointInfo, error) {
+	ed := &EndpointInfo{}
 	err := json.Unmarshal(data, ed)
 	if err != nil {
 		return nil, err
