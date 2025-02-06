@@ -1,6 +1,10 @@
 package source
 
-import "github.com/0125nia/Mercury/ipconf/discovery"
+import (
+	"fmt"
+
+	"github.com/0125nia/Mercury/ipconf/discovery"
+)
 
 var eventChan chan *Event
 
@@ -41,4 +45,8 @@ func NewEvent(etype EventType, ed *discovery.EndpointInfo) *Event {
 		ConnectNum:   connNum,
 		MessageBytes: msgBytes,
 	}
+}
+
+func (nd *Event) Key() string {
+	return fmt.Sprintf("%s:%s", nd.Ip, nd.Port)
 }
