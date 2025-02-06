@@ -28,5 +28,5 @@ func (c *connect) recv() <-chan *Message {
 
 // close closes the connection.
 func (c *connect) close() {
-	//todo: close the connection
+
 }

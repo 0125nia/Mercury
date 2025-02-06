@@ -13,12 +13,10 @@ type Conf struct {
 	Global    *Global    `yaml:"global"`
 	Discovery *Discovery `yaml:"discovery"`
 	IpConf    *IpConf    `yaml:"ipconf"`
-	// todo add config here
 }
 
 type Global struct {
 	Env string `yaml:"env"`
-	// todo add global config here
 }
 
 type Discovery struct {
