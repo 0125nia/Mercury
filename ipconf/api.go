@@ -21,14 +21,8 @@ func GetIpInfoList(c context.Context, ctx *app.RequestContext) {
 	ipConfCtx := domain.BuildIpConfContext(&c, ctx)
 
 	// ip dispatch processing
-	domain.Dispatch(ipConfCtx)
+	eds := domain.Dispatch(ipConfCtx)
 
 	// resp the ip info list
-	ctx.JSON(consts.StatusOK, ipConfResp())
-}
-
-type Response struct {
-	Message string      `json:"message"`
-	Code    int         `json:"code"`
-	Data    interface{} `json:"data"`
+	ipConfCtx.AppReqCtx.JSON(consts.StatusOK, ipConfResp(top5Endpoints(eds)))
 }
