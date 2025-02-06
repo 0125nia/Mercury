@@ -4,6 +4,10 @@ import "github.com/0125nia/Mercury/ipconf/discovery"
 
 var eventChan chan *Event
 
+func EventChan() chan *Event {
+	return eventChan
+}
+
 type EventType string
 
 const (
