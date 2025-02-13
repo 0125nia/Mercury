@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/0125nia/Mercury/client/sdk"
+	"github.com/0125nia/Mercury/common/sdk"
 	"github.com/gookit/color"
 	"github.com/rocket049/gocui"
 )
