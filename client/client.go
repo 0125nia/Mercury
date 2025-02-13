@@ -3,6 +3,7 @@ package client
 import (
 	"fmt"
 	"log"
+	"net"
 	"os"
 
 	"github.com/0125nia/Mercury/common/sdk"
@@ -18,7 +19,7 @@ var (
 // RunMain client main logic function
 func RunMain() {
 	// init chat
-	chat = sdk.NewChat("127.0.0.1:8080", "mercury", "123123", "123123")
+	chat = sdk.NewChat(net.ParseIP("0.0.0.0"), 8900, "mercury", "123123", "123123")
 
 	// init gocui
 	g, err := gocui.NewGui(gocui.OutputNormal)

@@ -1,5 +1,7 @@
 package sdk
 
+import "net"
+
 const (
 	MsgTypeText = "text"
 )
@@ -17,18 +19,18 @@ type Message struct {
 // Chat is a struct that represents a chat between two clients.
 type Chat struct {
 	Name      string
-	Id        string
-	SessionId string
+	ID        string
+	SessionID string
 	conn      *connect
 }
 
 // NewChat creates a new chat struct.
-func NewChat(serverAddr, name, id, sessionId string) *Chat {
+func NewChat(ip net.IP, port int, name, id, sessionId string) *Chat {
 	return &Chat{
 		Name:      name,
-		Id:        id,
-		SessionId: sessionId,
-		conn:      newConnect(serverAddr),
+		ID:        id,
+		SessionID: sessionId,
+		conn:      newConnect(ip, port),
 	}
 }
 
