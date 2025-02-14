@@ -25,11 +25,11 @@ type Chat struct {
 }
 
 // NewChat creates a new chat struct.
-func NewChat(ip net.IP, port int, name, id, sessionId string) *Chat {
+func NewChat(ip net.IP, port int, name, ID, sessionID string) *Chat {
 	return &Chat{
 		Name:      name,
-		ID:        id,
-		SessionID: sessionId,
+		ID:        ID,
+		SessionID: sessionID,
 		conn:      newConnect(ip, port),
 	}
 }

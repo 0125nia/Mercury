@@ -1,8 +1,11 @@
 package sdk
 
 import (
+	"encoding/json"
 	"fmt"
 	"net"
+
+	"github.com/0125nia/Mercury/common/tcp"
 )
 
 // connect is a struct that represents a connection between two clients.
@@ -27,7 +30,13 @@ func newConnect(ip net.IP, port int) *connect {
 	clientConn.conn = conn
 	go func() {
 		for {
-			// todo read message from the other client
+			data, err := tcp.ReadData(conn)
+			if err != nil {
+				fmt.Printf("ReadData err:%+v", err)
+			}
+			msg := &Message{}
+			json.Unmarshal(data, msg)
+			clientConn.recvChan <- msg
 		}
 	}()
 	return clientConn
@@ -35,9 +44,13 @@ func newConnect(ip net.IP, port int) *connect {
 
 // send sends a message to the other client.
 func (c *connect) send(data *Message) {
-	// 直接发送给接收方
-	// bytes, _ := json.Marshal(data)
-	// todo
+	bytes, _ := json.Marshal(data)
+	dataPgk := tcp.DataPgk{
+		Data: bytes,
+		Len:  uint32(len(bytes)),
+	}
+	xx := dataPgk.Marshal()
+	c.conn.Write(xx)
 }
 
 // recv receives a message from the other client.
