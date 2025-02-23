@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/0125nia/Mercury/common/config"
-	"github.com/0125nia/Mercury/ipconf/discovery"
+	"github.com/0125nia/Mercury/common/discovery"
 	"github.com/bytedance/gopkg/util/logger"
 )
 

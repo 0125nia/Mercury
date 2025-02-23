@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/0125nia/Mercury/common/config"
-	"github.com/0125nia/Mercury/ipconf/discovery"
+	"github.com/0125nia/Mercury/common/discovery"
 )
 
 // testServiceRegister is a function to test the service register

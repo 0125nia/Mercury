@@ -3,7 +3,7 @@ package source
 import (
 	"fmt"
 
-	"github.com/0125nia/Mercury/ipconf/discovery"
+	"github.com/0125nia/Mercury/common/discovery"
 )
 
 var eventChan chan *Event
