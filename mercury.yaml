@@ -8,3 +8,6 @@ discovery:
 
 ipconf:
   service_path: /ipconf
+
+gateway:
+  workpool_num: 1024

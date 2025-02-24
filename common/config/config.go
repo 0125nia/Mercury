@@ -13,6 +13,7 @@ type Conf struct {
 	Global    *Global    `yaml:"global"`
 	Discovery *Discovery `yaml:"discovery"`
 	IpConf    *IpConf    `yaml:"ipconf"`
+	Gateway   *Gateway   `yaml:"gateway"`
 }
 
 type Global struct {
@@ -26,6 +27,10 @@ type Discovery struct {
 
 type IpConf struct {
 	ServicePath string `yaml:"service_path"`
+}
+
+type Gateway struct {
+	WorkerPoolNum int `yaml:"workerpool_num"`
 }
 
 func InitConfig(path string) {
