@@ -12,3 +12,6 @@ ipconf:
 gateway:
   workpool_num: 1024
   server_port: 9001
+  epoller_channel_num: 100
+  epoller_num: 4
+  tcp_max_num: 10000
