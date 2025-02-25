@@ -31,6 +31,7 @@ type IpConf struct {
 
 type Gateway struct {
 	WorkerPoolNum int `yaml:"workerpool_num"`
+	ServerPort    int `yaml:"server_port"`
 }
 
 func InitConfig(path string) {

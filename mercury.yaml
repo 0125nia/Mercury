@@ -11,3 +11,4 @@ ipconf:
 
 gateway:
   workpool_num: 1024
+  server_port: 9001
