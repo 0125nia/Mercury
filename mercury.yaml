@@ -14,4 +14,5 @@ gateway:
   server_port: 9001
   epoller_channel_num: 100
   epoller_num: 4
+  epoller_wait_queue_size: 100
   tcp_max_num: 10000

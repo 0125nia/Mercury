@@ -30,11 +30,12 @@ type IpConf struct {
 }
 
 type Gateway struct {
-	WorkerPoolNum  int   `yaml:"workerpool_num"`
-	ServerPort     int   `yaml:"server_port"`
-	EpollerChanNum int   `yaml:"epoller_channel_num"`
-	EpollerNum     int   `yaml:"epoller_num"`
-	TCPMaxNum      int32 `yaml:"tcp_max_num"`
+	WorkerPoolNum        int   `yaml:"workerpool_num"`
+	ServerPort           int   `yaml:"server_port"`
+	EpollerChanNum       int   `yaml:"epoller_channel_num"`
+	EpollerWaitQueueSize int   `yaml:"epoller_wait_queue_size"`
+	EpollerNum           int   `yaml:"epoller_num"`
+	TCPMaxNum            int32 `yaml:"tcp_max_num"`
 }
 
 func InitConfig(path string) {
